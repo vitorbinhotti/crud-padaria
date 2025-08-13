@@ -31,5 +31,5 @@ create table pedidos (
     fk_clientes int not null,
     FOREIGN KEY (fk_clientes) REFERENCES clientes(id_cliente),
     fk_produtos int not null,
-    FOREIGN KEY (fk_produtos) REFERENCES produtos(id_produtos),
+    FOREIGN KEY (fk_produtos) REFERENCES produtos(id_produtos)
 );

@@ -17,7 +17,6 @@
 
 ?>
 
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +24,6 @@
     <title>Create</title>
 </head>
 <body>
-    
     <form method="POST" action="create.php">
         <label for="name">Nome:</label>
         <input type="text" name="name" required>
