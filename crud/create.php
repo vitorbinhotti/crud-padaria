@@ -33,6 +33,6 @@
         <input type="email" name="email" required>
         <input type="submit" value="Adicionar">
     </form>
-    <a href="read.php">Ver registros.</a>
+    <a href="read.php">Ver registros</a>
 </body>
 </html>
