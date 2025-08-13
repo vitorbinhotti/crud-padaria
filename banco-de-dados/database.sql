@@ -1,0 +1,35 @@
+create database crud_padaria;
+
+use crud_padaria;
+
+create table produtos (
+    id_produtos int not null auto_increment primary key,
+    nome varchar(85) not null,
+    descricao varchar(85) not null,
+    fk_usuarios int not null,
+    FOREIGN KEY (fk_usuarios) REFERENCES usuarios(id_usuarios) 
+);
+
+create table usuarios (
+    id_usuarios int not null auto_increment primary key,
+    nome varchar(80) not null,
+    email varchar(45) not null,
+    senha varchar(45) not null,
+    telefone varchar(45) not null
+);
+
+create table clientes (
+    id_cliente int not null auto_increment primary key,
+    nome varchar(85) not null,
+    email varchar(85) not null,
+    telefone varchar(85) not null
+);
+
+create table pedidos (
+    id_pedidos int not null auto_increment primary key,
+    descricao varchar(85) not null,
+    fk_clientes int not null,
+    FOREIGN KEY (fk_clientes) REFERENCES clientes(id_cliente),
+    fk_produtos int not null,
+    FOREIGN KEY (fk_produtos) REFERENCES produtos(id_produtos),
+);
