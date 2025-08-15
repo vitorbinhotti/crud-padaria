@@ -2,10 +2,11 @@
     include 'db.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $name = $_POST['name'];
+        $nome = $_POST['nome'];
         $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
 
-        $sql = "INSERT INTO user (name,email) VALUE ('$name','$email')";
+        $sql = "INSERT INTO clientes (nome,email,telefone) VALUE ('$nome','$email','$telefone')";
 
        if($conn ->query($sql) === true){
         echo "Novo registro criado com sucesso.";
@@ -25,10 +26,12 @@
 </head>
 <body>
     <form method="POST" action="create.php">
-        <label for="name">Nome:</label>
-        <input type="text" name="name" required>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required><br>
         <label for="email">Email:</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" required><br>
+        <label for="email">Telefone:</label>
+        <input type="number"  maxlength="11" name="telefone" required><br>
         <input type="submit" value="Adicionar">
     </form>
     <a href="read.php">Ver registros</a>

@@ -2,7 +2,7 @@
 
 include 'db.php';
 
-$sql = "SELECT * FROM user";
+$sql = "SELECT * FROM clientes";
 
 $result = $conn -> query($sql);
 
@@ -13,20 +13,19 @@ if($result -> num_rows > 0){
             <th> ID </th>
             <th> Nome </th>
             <th> Email </th>
-            <th> Data de Criação </th>
-            <th> Ações </th>
+            <th> Telefone </th>
         </tr>";
     
         while($row = $result -> fetch_assoc()){
 
             echo " <tr>
-                        <td> {$row['id']} </td>
-                        <td> {$row['name']} </td>
-                        <td> {$row['email']} </td>
-                        <td> {$row['created_at']} </td>
+                        <td> {$row['id_cliente']} </td>
+                        <td> {$row['clientes.nome']} </td>
+                        <td> {$row['clientes.email']} </td>
+                        <td> {$row['clientes.telefone']} </td>
                         <td>
-                            <a href='update.php?id={$row['id']}'>Editar<a> |
-                            <a href='delete.php?id={$row['id']}'>Excluir</a>
+                            <a href='update.php?id={$row['id_cliente']}'>Editar<a> |
+                            <a href='delete.php?id={$row['id_cliente']}'>Excluir</a>
                         </td>
                     </tr>
             ";
