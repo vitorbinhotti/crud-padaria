@@ -2,12 +2,14 @@
     include 'db.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-
-        $sql_code = "SELECT * FROM clientes where email = '$email' and senha = '$senha'";
-        echo $senha_correta;
+        $login = $_POST['login'];
+        if($login == 'cliente'){
+            header('Location: create.php?tipo=cliente');
+        } elseif($login == 'usuario'){
+            header('Location: create.php?tipo=usuario');
+        }
     }
+    $conn -> close();
 
 ?>
 
@@ -19,11 +21,8 @@
 </head>
 <body>
     <form method="POST" action="login.php">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
-        <label for="senha">Senha:</label>
-        <input type="password"  maxlength="6" name="senha" required><br>
-        <input type="submit" value="Adicionar">
+        <button type="submit" name="login" value="cliente">Cliente</button>
+        <button type="submit" name="login" value="usuario">Usuário</button>
     </form>
 </body>
 </html>
