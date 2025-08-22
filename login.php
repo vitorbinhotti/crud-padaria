@@ -4,9 +4,9 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $login = $_POST['login'];
         if($login == 'cliente'){
-            header('Location: create.php?tipo=cliente');
+            header('Location: read.php?tipo=cliente');
         } elseif($login == 'usuario'){
-            header('Location: create.php?tipo=usuario');
+            header('Location: read.php?tipo=usuario');
         }
     }
     $conn -> close();
@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create</title>
+    <title>Login</title>
 </head>
 <body>
     <form method="POST" action="login.php">

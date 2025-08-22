@@ -26,6 +26,7 @@
 </head>
 <body>
     <form method="POST" action="create.php">
+        <h1>Adicionar clientes:</h1>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" required><br>
         <label for="email">Email:</label>
@@ -34,6 +35,5 @@
         <input type="number"  maxlength="11" name="telefone" required><br>
         <input type="submit" value="Adicionar">
     </form>
-    <a href="read.php">Ver registros</a>
 </body>
 </html>
