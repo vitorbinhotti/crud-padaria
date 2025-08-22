@@ -2,6 +2,7 @@
     include 'db.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if(isset($_POST['adicionar2'])){
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $quantidade = $_POST['quantidade'];
@@ -14,6 +15,8 @@
         echo "Erro" . $sql . "<br>" . $conn->error;
        }
        $conn -> close();
+       header("Refresh: 0");
+    }
     }
 
 ?>
@@ -25,7 +28,7 @@
     <title>Create</title>
 </head>
 <body>
-    <form method="POST" action="create.php">
+    <form method="POST" action="read.php?tipo=usuario">
         <h1>Adicionar produtos:</h1>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" required><br>
@@ -33,7 +36,7 @@
         <input type="text" name="descricao" required><br>
         <label for="email">Quantidade:</label>
         <input type="number" name="quantidade" required><br>
-        <input type="submit" value="Adicionar">
+        <button type="submit" name="adicionar2">Adicionar</button>
     </form>
 </body>
 </html>

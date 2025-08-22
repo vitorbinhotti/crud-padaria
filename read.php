@@ -118,13 +118,8 @@ $conn -> close();
 ?>
 
 <?php
-
-include 'db.php';
-
 if($tipo === 'usuario'){
     include 'create_user.php';
     include 'create_product.php';
 }
-
-$conn -> close();
 ?>
