@@ -1,5 +1,6 @@
 <html lang="en">
-    <title>Read</title>
+<title>Read</title>
+
 </html>
 
 
@@ -11,79 +12,81 @@ $tipo = $_GET['tipo'];
 
 $sql = "SELECT * FROM clientes";
 
-$result = $conn -> query($sql);
+$result = $conn->query($sql);
 
-if($result -> num_rows > 0){
-
-    echo "<table border='1'>
+if ($tipo === 'usuario') {
+    if ($result->num_rows > 0) {
+        echo "<h1>Clientes:</h1><table border='1'>
         <tr>
             <th> ID </th>
             <th> Nome </th>
             <th> Email </th>
             <th> Telefone </th>
         </tr>";
-    if ($tipo === 'usuario');
-    echo "</tr>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>
+        if ($tipo === 'usuario')
+            ;
+        echo "</tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
             <td>{$row['id_cliente']}</td>
             <td>{$row['nome']}</td>
             <td>{$row['email']}</td>
             <td>{$row['telefone']}</td>";
-        if ($tipo === 'usuario') {
-            echo "<td>
+            if ($tipo === 'usuario') {
+                echo "<td>
                 <a href='update.php?id={$row['id_cliente']}&&nome={$row['nome']}&&email={$row['email']}&&telefone={$row['telefone']}&&tabela=clientes'>Editar</a> |
                 <a href='delete.php?id={$row['id_cliente']}&&tabela=clientes'>Excluir</a>
             </td>";
+            }
+            echo "</tr>";
         }
-        echo "</tr>";
+        echo "</table>";
+    } else {
+        echo "Nenhum cliente encontrado.<br>";
     }
-    echo "</table><br>";
-} else {
-    echo "Nenhum cliente encontrado.<br>";
-}
 
-$sql = "SELECT * FROM usuarios";
+    $sql = "SELECT * FROM usuarios";
 
-$result = $conn -> query($sql);
+    $result = $conn->query($sql);
 
-if($result -> num_rows > 0){
+    if ($result->num_rows > 0) {
 
-    echo "<table border='1'>
+        echo "<h1>Usuários:</h1><table border='1'>
         <tr>
             <th> ID </th>
             <th> Nome </th>
             <th> Email </th>
             <th> Telefone </th>
         </tr>";
-    if ($tipo === 'usuario');
-    echo "</tr>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>
+        if ($tipo === 'usuario')
+            ;
+        echo "</tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
             <td>{$row['id_usuarios']}</td>
             <td>{$row['nome']}</td>
             <td>{$row['email']}</td>
             <td>{$row['telefone']}</td>";
-        if ($tipo === 'usuario') {
-            echo "<td>
+            if ($tipo === 'usuario') {
+                echo "<td>
                 <a href='update.php?id={$row['id_usuarios']}&&nome={$row['nome']}&&email={$row['email']}&&telefone={$row['telefone']}&&tabela=usuarios'>Editar</a> |
                 <a href='delete.php?id={$row['id_usuarios']}&&tabela=usuarios'>Excluir</a>
             </td>";
+            }
+            echo "</tr>";
         }
-        echo "</tr>";
+        echo "</table>";
+    } else {
+        echo "Nenhum usuário encontrado.<br>";
     }
-    echo "</table><br>";
-} else {
-    echo "Nenhum usuário encontrado.<br>";
 }
-
 $sql = "SELECT * FROM produtos";
 
-$result = $conn -> query($sql);
+$result = $conn->query($sql);
 
-if($result -> num_rows > 0){
+if ($result->num_rows > 0) {
 
-    echo "<table border='1'>
+    echo "<h1>Produtos:</h1><table border='1'>
         <tr>
             <th> ID </th>
             <th> Nome </th>
@@ -91,7 +94,8 @@ if($result -> num_rows > 0){
             <th> Quantidade </th>
             <th> Data de Validade </th>
         </tr>";
-    if ($tipo === 'usuario');
+    if ($tipo === 'usuario')
+        ;
     echo "</tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
@@ -108,17 +112,17 @@ if($result -> num_rows > 0){
         }
         echo "</tr>";
     }
-    echo "</table><br>";
+    echo "</table>";
 } else {
     echo "Nenhum produto encontrado.<br>";
 }
 
-$conn -> close();
+$conn->close();
 
 ?>
 
 <?php
-if($tipo === 'usuario'){
+if ($tipo === 'usuario') {
     include 'create_client.php';
     include 'create_user.php';
     include 'create_product.php';
