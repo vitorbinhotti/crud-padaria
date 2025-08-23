@@ -32,11 +32,11 @@ if($result -> num_rows > 0){
             <td>{$row['telefone']}</td>";
         if ($tipo === 'usuario') {
             echo "<td>
-                <a href='update.php?id={$row['id_cliente']}'>Editar</a> |
-                <a href='delete.php?id={$row['id_cliente']}'>Excluir</a>
+                <a href='update.php?id={$row['id_cliente']}&&tabela=clientes'>Editar</a> |
+                <a href='delete.php?id={$row['id_cliente']}&&tabela=clientes'>Excluir</a>
             </td>";
         }
-        echo "</tr>";
+        echo "</tr><br>";
     }
     echo "</table>";
 } else {
@@ -66,11 +66,11 @@ if($result -> num_rows > 0){
             <td>{$row['telefone']}</td>";
         if ($tipo === 'usuario') {
             echo "<td>
-                <a href='update.php?id={$row['id_usuarios']}'>Editar</a> |
-                <a href='delete.php?id={$row['id_usuarios']}'>Excluir</a>
+                <a href='update.php?id={$row['id_usuarios']}&&tabela=usuarios'>Editar</a> |
+                <a href='delete.php?id={$row['id_usuarios']}&&tabela=usuarios'>Excluir</a>
             </td>";
         }
-        echo "</tr>";
+        echo "</tr><br>";
     }
     echo "</table>";
 } else {
@@ -102,11 +102,11 @@ if($result -> num_rows > 0){
             <td>{$row['data_adicionado']}</td>";
         if ($tipo === 'usuario') {
             echo "<td>
-                <a href='update.php?id={$row['id_produtos']}'>Editar</a> |
-                <a href='delete.php?id={$row['id_produtos']}'>Excluir</a>
+                <a href='update.php?id={$row['id_produtos']}&&tabela=produtos'>Editar</a> |
+                <a href='delete.php?id={$row['id_produtos']}&&tabela=produtos'>Excluir</a>
             </td>";
         }
-        echo "</tr>";
+        echo "</tr><br>";
     }
     echo "</table>";
 } else {
@@ -119,6 +119,7 @@ $conn -> close();
 
 <?php
 if($tipo === 'usuario'){
+    include 'create_client.php';
     include 'create_user.php';
     include 'create_product.php';
 }

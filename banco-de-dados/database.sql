@@ -7,7 +7,6 @@ create table usuarios (
     id_usuarios int not null auto_increment primary key,
     nome varchar(80) not null,
     email varchar(45) not null,
-    senha varchar(45) not null,
     telefone varchar(45) not null
 );
 
@@ -15,8 +14,8 @@ create table produtos (
     id_produtos int not null auto_increment primary key,
     nome varchar(85) not null,
     descricao varchar(85) not null,
-    fk_usuarios int not null,
-    FOREIGN KEY (fk_usuarios) REFERENCES usuarios(id_usuarios) 
+    quantidade int not null,
+    data_adicionado date not null default (current_date)
 );
 
 create table clientes (

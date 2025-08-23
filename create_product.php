@@ -2,7 +2,7 @@
     include 'db.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(isset($_POST['adicionar2'])){
+        if(isset($_POST['adicionarProduto'])){
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $quantidade = $_POST['quantidade'];
@@ -36,7 +36,7 @@
         <input type="text" name="descricao" required><br>
         <label for="email">Quantidade:</label>
         <input type="number" name="quantidade" required><br>
-        <button type="submit" name="adicionar2">Adicionar</button>
+        <button type="submit" name="adicionarProduto">Adicionar</button>
     </form>
 </body>
 </html>
