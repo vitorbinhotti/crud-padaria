@@ -6,8 +6,9 @@
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $quantidade = $_POST['quantidade'];
+        $data_validade = $_POST['data_validade'];
 
-        $sql = "INSERT INTO produtos (nome,descricao,quantidade) VALUE ('$nome','$descricao','$quantidade')";
+        $sql = "INSERT INTO produtos (nome,descricao,quantidade,data_validade) VALUE ('$nome','$descricao','$quantidade', '$data_validade')";
 
        if($conn ->query($sql) === true){
         echo "Novo registro criado com sucesso.";
@@ -36,6 +37,8 @@
         <input type="text" name="descricao" required><br>
         <label for="email">Quantidade:</label>
         <input type="number" name="quantidade" required><br>
+        <label for="email">Data de Validade:</label>
+        <input type="date" name="data_validade" required><br>
         <button type="submit" name="adicionarProduto">Adicionar</button>
     </form>
 </body>

@@ -32,15 +32,15 @@ if($result -> num_rows > 0){
             <td>{$row['telefone']}</td>";
         if ($tipo === 'usuario') {
             echo "<td>
-                <a href='update.php?id={$row['id_cliente']}&&tabela=clientes'>Editar</a> |
+                <a href='update.php?id={$row['id_cliente']}&&nome={$row['nome']}&&email={$row['email']}&&telefone={$row['telefone']}&&tabela=clientes'>Editar</a> |
                 <a href='delete.php?id={$row['id_cliente']}&&tabela=clientes'>Excluir</a>
             </td>";
         }
-        echo "</tr><br>";
+        echo "</tr>";
     }
-    echo "</table>";
+    echo "</table><br>";
 } else {
-    echo "Nenhum cliente encontrado.";
+    echo "Nenhum cliente encontrado.<br>";
 }
 
 $sql = "SELECT * FROM usuarios";
@@ -66,15 +66,15 @@ if($result -> num_rows > 0){
             <td>{$row['telefone']}</td>";
         if ($tipo === 'usuario') {
             echo "<td>
-                <a href='update.php?id={$row['id_usuarios']}&&tabela=usuarios'>Editar</a> |
+                <a href='update.php?id={$row['id_usuarios']}&&nome={$row['nome']}&&email={$row['email']}&&telefone={$row['telefone']}&&tabela=usuarios'>Editar</a> |
                 <a href='delete.php?id={$row['id_usuarios']}&&tabela=usuarios'>Excluir</a>
             </td>";
         }
-        echo "</tr><br>";
+        echo "</tr>";
     }
-    echo "</table>";
+    echo "</table><br>";
 } else {
-    echo "Nenhum usuário encontrado.";
+    echo "Nenhum usuário encontrado.<br>";
 }
 
 $sql = "SELECT * FROM produtos";
@@ -89,7 +89,7 @@ if($result -> num_rows > 0){
             <th> Nome </th>
             <th> Descrição </th>
             <th> Quantidade </th>
-            <th> Data </th>
+            <th> Data de Validade </th>
         </tr>";
     if ($tipo === 'usuario');
     echo "</tr>";
@@ -99,18 +99,18 @@ if($result -> num_rows > 0){
             <td>{$row['nome']}</td>
             <td>{$row['descricao']}</td>
             <td>{$row['quantidade']}</td>
-            <td>{$row['data_adicionado']}</td>";
+            <td>{$row['data_validade']}</td>";
         if ($tipo === 'usuario') {
             echo "<td>
-                <a href='update.php?id={$row['id_produtos']}&&tabela=produtos'>Editar</a> |
+                <a href='update.php?id={$row['id_produtos']}&&nome={$row['nome']}&&descricao={$row['descricao']}&&quantidade={$row['quantidade']}&&data_validade={$row['data_validade']}&&tabela=produtos'>Editar</a> |
                 <a href='delete.php?id={$row['id_produtos']}&&tabela=produtos'>Excluir</a>
             </td>";
         }
-        echo "</tr><br>";
+        echo "</tr>";
     }
-    echo "</table>";
+    echo "</table><br>";
 } else {
-    echo "Nenhum produto encontrado.";
+    echo "Nenhum produto encontrado.<br>";
 }
 
 $conn -> close();

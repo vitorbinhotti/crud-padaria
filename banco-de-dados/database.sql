@@ -15,7 +15,7 @@ create table produtos (
     nome varchar(85) not null,
     descricao varchar(85) not null,
     quantidade int not null,
-    data_adicionado date not null default (current_date)
+    data_validade date not null
 );
 
 create table clientes (
