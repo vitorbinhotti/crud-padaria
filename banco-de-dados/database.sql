@@ -45,4 +45,5 @@ INSERT INTO usuarios (nome, email, telefone)
 VALUES ('Maria Oliveira', 'maria.oliveira@padaria.com', '11912345678');
 
 INSERT INTO produtos (nome, descricao, quantidade, data_validade)
-VALUES ('Pão Francês', 'Pão francês fresquinho', 100, '2025-12-31')('Rosquinha', 'Rosquinha doce', 50, '2025-11-30');
+VALUES ('Pão Francês', 'Pão francês fresquinho', 100, '2025-12-31'),
+	   ('Rosquinha', 'Rosquinha doce', 50, '2025-11-30');

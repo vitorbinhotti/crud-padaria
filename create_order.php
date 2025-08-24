@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = $conn->query($sql);
             $row_pro = $result->fetch_assoc();
 
-            $sql_pedido = "INSERT INTO pedidos (descricao,fk_produtos,quantidade,fk_clientes) VALUE ('Produto: {$row_pro['nome']} / Quantidade: $quantidade / Cliente: {$row_cli['nome']}','$produto','$quantidade','$id_cliente')";
+            $sql_pedido = "INSERT INTO pedidos (descricao,fk_produtos,quantidade,fk_clientes) VALUES ('Produto: {$row_pro['nome']} / Quantidade: $quantidade / Cliente: {$row_cli['nome']}','$produto','$quantidade','$id_cliente')";
 
             $sql_quantidade = "UPDATE produtos SET quantidade = $resultado WHERE id_produtos = $produto";
 

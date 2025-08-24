@@ -103,7 +103,7 @@ if ($result->num_rows > 0) {
         }
         echo "</tr>";
     }
-    echo "</table>";
+    echo "</table><br>";
 } else {
     echo "Nenhum produto encontrado.<br>";
 }
@@ -114,10 +114,10 @@ $conn->close();
 
 <?php
 if ($tipo === 'usuario') {
-    include 'create_client.php';
-    include 'create_user.php';
-    include 'create_product.php';
-} elseif($tipo === 'cliente'){
+    echo "<a href='create_client.php'>Adicionar Cliente</a><br>";
+    echo "<a href='create_user.php'>Adicionar Usuário</a><br>";
+    echo "<a href='create_product.php'>Adicionar Produto</a>";
+} elseif ($tipo === 'cliente') {
     include 'create_order.php';
 }
 ?>

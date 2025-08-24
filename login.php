@@ -10,7 +10,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $login = $_POST['login'];
         if($login == 'cliente'){
-            header('Location: read.php?tipo=cliente&&id_cliente=$id_cliente');
+            header("Location: read.php?tipo=cliente&&id_cliente=$id_cliente");
         } elseif($login == 'usuario'){
             header('Location: read.php?tipo=usuario');
         }
