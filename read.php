@@ -23,9 +23,6 @@ if ($tipo === 'usuario') {
             <th> Email </th>
             <th> Telefone </th>
         </tr>";
-        if ($tipo === 'usuario')
-            ;
-        echo "</tr>";
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
             <td>{$row['id_cliente']}</td>
@@ -58,9 +55,6 @@ if ($tipo === 'usuario') {
             <th> Email </th>
             <th> Telefone </th>
         </tr>";
-        if ($tipo === 'usuario')
-            ;
-        echo "</tr>";
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
             <td>{$row['id_usuarios']}</td>
@@ -94,9 +88,6 @@ if ($result->num_rows > 0) {
             <th> Quantidade </th>
             <th> Data de Validade </th>
         </tr>";
-    if ($tipo === 'usuario')
-        ;
-    echo "</tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
             <td>{$row['id_produtos']}</td>
@@ -126,5 +117,7 @@ if ($tipo === 'usuario') {
     include 'create_client.php';
     include 'create_user.php';
     include 'create_product.php';
+} elseif($tipo === 'cliente'){
+    include 'create_order.php';
 }
 ?>

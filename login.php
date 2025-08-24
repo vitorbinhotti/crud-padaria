@@ -1,10 +1,16 @@
 <?php
     include 'db.php';
 
+    $sql = 'SELECT id_cliente FROM clientes';
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    $id_cliente = $row['id_cliente'];
+
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $login = $_POST['login'];
         if($login == 'cliente'){
-            header('Location: read.php?tipo=cliente');
+            header('Location: read.php?tipo=cliente&&id_cliente=$id_cliente');
         } elseif($login == 'usuario'){
             header('Location: read.php?tipo=usuario');
         }
