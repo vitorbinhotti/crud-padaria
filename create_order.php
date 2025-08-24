@@ -55,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             echo "Quantidade indisponível";
             $conn->close();
-            header("Location: read.php?id_cliente=$id_cliente");
         }
     }
 }
@@ -83,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="number" name="quantidade" required><br>
         <button type="submit" name="criarPedido">Criar Pedido</button>
     </form>
+    <a href="orders.php?id_cliente=<?php echo $id_cliente; ?>">Ver meus pedidos</a>
 </body>
 
 </html>
