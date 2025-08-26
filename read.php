@@ -16,7 +16,7 @@ $result = $conn->query($sql);
 
 if ($tipo === 'usuario') {
     if ($result->num_rows > 0) {
-        echo "<h1>Clientes:</h1><table border='1'>
+        echo "<h2>Clientes:</h2><table border='1'>
         <tr>
             <th> ID </th>
             <th> Nome </th>
@@ -37,7 +37,7 @@ if ($tipo === 'usuario') {
             }
             echo "</tr>";
         }
-        echo "</table>";
+        echo "</table><br>";
     } else {
         echo "Nenhum cliente encontrado.<br>";
     }
@@ -48,7 +48,7 @@ if ($tipo === 'usuario') {
 
     if ($result->num_rows > 0) {
 
-        echo "<h1>Usuários:</h1><table border='1'>
+        echo "<h2>Usuários:</h2><table border='1'>
         <tr>
             <th> ID </th>
             <th> Nome </th>
@@ -69,7 +69,7 @@ if ($tipo === 'usuario') {
             }
             echo "</tr>";
         }
-        echo "</table>";
+        echo "</table><br>";
     } else {
         echo "Nenhum usuário encontrado.<br>";
     }
@@ -80,7 +80,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 
-    echo "<h1>Produtos:</h1><table border='1'>
+    echo "<h2>Produtos:</h2><table border='1'>
         <tr>
             <th> ID </th>
             <th> Nome </th>
@@ -106,6 +106,40 @@ if ($result->num_rows > 0) {
     echo "</table><br>";
 } else {
     echo "Nenhum produto encontrado.<br>";
+}
+$sql = "SELECT * FROM pedidos";
+
+$result = $conn->query($sql);
+if ($tipo === 'usuario') {
+    if ($result->num_rows > 0) {
+        echo "<h2>Pedidos:</h2><table border='1'>
+        <tr>
+            <th> ID </th>
+            <th> Descrição </th>
+            <th> Quantidade </th>
+            <th> Data do Pedido </th>
+            <th> ID Cliente </th>
+            <th> ID Produto </th>
+        </tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+            <td>{$row['id_pedidos']}</td>
+            <td>{$row['descricao']}</td>
+            <td>{$row['quantidade']}</td>
+            <td>{$row['data_pedido']}</td>
+            <td>{$row['fk_clientes']}</td>
+            <td>{$row['fk_produtos']}</td>";
+            if ($tipo === 'usuario') {
+                echo "<td>
+                <a href='delete.php?id={$row['id_pedidos']}&&tabela=pedidos'>Excluir</a>
+            </td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table><br>";
+    } else {
+        echo "Nenhum pedido encontrado.<br>";
+    }
 }
 
 $conn->close();
